@@ -1,8 +1,9 @@
 var linksNavBar = $("ul.navbar-nav > li > a");
+var altura = $('#navegacao').offset().top;
 
 linksNavBar.click(function(event){
 	var position = $(this.hash).offset() ? $(this.hash).offset() : '' ;
-	var heightMenu = ($(window).scrollTop() < 200) ? 100 : 50;
+	var heightMenu = ($(window).scrollTop() < altura) ? 100 : 50;
 	event.preventDefault();
 
 	if(!$(this.hash).offset()){
@@ -24,7 +25,7 @@ $(window).scroll(function(){
 
 	CheckActive();
 
-	if (scrollTopAtual-250 >= 200) {
+	if ( $(window).scrollTop() > altura ) {
 		navegacao.addClass('navegacao-fixa');
 	}
 	else {
